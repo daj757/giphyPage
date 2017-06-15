@@ -4,6 +4,7 @@
 	    <meta charset="UTF-8">
 
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
 
 	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -26,20 +27,19 @@
 <div>
     <h1>GIF Heroes </h1>
 </div>
-<div id="hero-buttons">
+<div id="hero-buttons" class="col-xs-2">
 </div>
-<div id="hero-gifs"></div>
-<div id= "heroSearch">
-	<h2> Hero Search</h2>
+<div id= "heroSearch" class="col-xs-6 col-xs-offset-3">
 	<form id= "heroForm" >
 	<label for="hero-input">Search Hero</label>
-    <input type="text" id="hero-input"><br>
+    <input type="text" id="hero-input">
 
       <!-- Button adds new hero -->
 
     <input id="add-hero" type="submit" value="Add Hero">
     </form>
-
+</div>
+<div id="hero-gifs" class="col-xs-10"></div>
 
 
 

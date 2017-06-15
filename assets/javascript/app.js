@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
 // List of heros in generated buttons 
-
+$(".col-xs-2").hide();
 var heroArray = ["Spider Man", "Batman", "Wonder Woman", "The Hulk", "Green Lantern", "Superman", " Hawk Girl", "Wolverine", "Magneto"]
 var moveGif;
 var stillGif;
@@ -17,6 +17,8 @@ function heroButtons() {
 			s.addClass("heroBtn");
 			s.attr("data-name", heroArray[i]);
 			s.text(heroArray[i]);
+			$(".col-xs-2").show();
+			$("#heroSearch").attr("class", "col-xs-offset-3")
 			$("#hero-buttons").append(s);
 
 	}
@@ -31,6 +33,7 @@ $(document.body).on("click", ".heroPic", moveHero);
 // Adds the hero inputed by user into new button
 
 function addHero() {
+	$("#hero-gifs").empty();
 	var hero = $("#hero-input").val().trim();
 // Makes sure user null user input does not generate empty button
 	if(!hero) {
@@ -43,7 +46,7 @@ function addHero() {
 
 // Runs ajax to fetch gifs
 
-	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + hero + "&api_key=dc6zaTOxFJmzC";
+	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + hero + "&rating=pg&api_key=dc6zaTOxFJmzC";
     $.ajax({
       url: queryURL,
       method: 'GET'
@@ -53,7 +56,6 @@ function addHero() {
       	var heroGif = $("<img>");
       	var p = $("<p>");
       	heroGif.addClass("heroPic");
-      	heroGif.addClass("col-md-3");
       	heroGif.attr("src", response.data[i].images.fixed_height_still.url);
       	moveGif = response.data[i].images.fixed_height.url;
       	stillGif = response.data[i].images.fixed_height_still.url;
@@ -61,6 +63,9 @@ function addHero() {
       	heroGif.attr("data-still", stillGif)
       	heroGif.attr("data-move", moveGif)
       	heroGif.attr("data-type", "still")
+      	if(rating === "r") {
+      		return false
+      	}
       	$("#hero-gifs").append(newDiv);
       	p.html(rating);
       	newDiv.append(heroGif);
@@ -78,7 +83,7 @@ function addHero() {
 function searchHero() {
 	$("#hero-gifs").empty();
 	var hero = $(this).data("name");
-	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + hero + "&api_key=dc6zaTOxFJmzC";
+	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + hero + "&rating=pg&api_key=dc6zaTOxFJmzC";
 	
 	$.ajax({
       url: queryURL,
@@ -89,7 +94,6 @@ function searchHero() {
       	var heroGif = $("<img>");
       	var p = $("<p>");
       	heroGif.addClass("heroPic");
-      	heroGif.addClass("col-md-3");
       	heroGif.attr("src", response.data[i].images.fixed_height_still.url);
       	moveGif = response.data[i].images.fixed_height.url;
       	stillGif = response.data[i].images.fixed_height_still.url;
