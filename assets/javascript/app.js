@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 // List of heros in generated buttons 
 $(".col-xs-2").hide();
-var heroArray = ["Spider Man", "Batman", "Wonder Woman", "The Hulk", "Green Lantern", "Superman", " Hawk Girl", "Wolverine", "Magneto"]
+var heroArray = ["Spider Man", "Batman", "Wonder Woman", "The Hulk", "Green Lantern", "Superman", " Hawk Girl", "Wolverine", "Magneto", "Captain Marvel", "Firestorm", "Iron Man", "Aqua Man", "Martian Manhunter", "Captain Atom"]
 var moveGif;
 var stillGif;
 var gifState;
@@ -46,7 +46,7 @@ function addHero() {
 
 // Runs ajax to fetch gifs
 
-	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + hero + "&rating=pg&api_key=dc6zaTOxFJmzC";
+	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + hero + "&rating=pg-13&api_key=dc6zaTOxFJmzC";
     $.ajax({
       url: queryURL,
       method: 'GET'
@@ -83,7 +83,7 @@ function addHero() {
 function searchHero() {
 	$("#hero-gifs").empty();
 	var hero = $(this).data("name");
-	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + hero + "&rating=pg&api_key=dc6zaTOxFJmzC";
+	var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + hero + "&rating=pg-13&api_key=dc6zaTOxFJmzC";
 	
 	$.ajax({
       url: queryURL,
