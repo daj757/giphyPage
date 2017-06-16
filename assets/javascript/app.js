@@ -120,8 +120,6 @@ function searchHero() {
 function moveHero () {
 		console.log("working")
 		moveGif = $(this).data("move");
-		
-		
 
 		stillGif= $(this).data("still");
 	    gifState = $(this).data("type");
@@ -133,6 +131,7 @@ function moveHero () {
 
 	}
 	else if (gifState === "animate") {
+		
 		$(this).attr("src", stillGif);
 		$(this).data("type", "still");
 	}

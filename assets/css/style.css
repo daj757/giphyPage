@@ -6,9 +6,11 @@ body {
 
 #hero-gifs div {
 	display: inline-block;
-	padding: 10px;
+	margin: 2px;
 
 }
+
+
 #hero-gifs p {
 	text-align: center;
 	font-family: 'Orbitron', sans-serif;
@@ -16,7 +18,18 @@ body {
 }
 .heroBtn {
 	margin: 5px;
+	background-color: grey;
+	border-radius: 15px;
+	padding: 5px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: white;
+
+}
+
+.heroBtn:hover {
 	background-color: black;
+
 }
 h1 {
 	text-align: center;
@@ -24,6 +37,7 @@ h1 {
 }
 #hero-input {
 	background-color: black;
+	margin-bottom: 20px;
 }
 #add-hero {
 	background-color: black;
@@ -31,4 +45,6 @@ h1 {
 .col-xs-2 {
 	background-color: #330000;
 	padding: 20px;
+	height: 100%;
+
 }
